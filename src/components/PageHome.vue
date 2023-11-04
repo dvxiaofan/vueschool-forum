@@ -10,26 +10,20 @@
   </div>
 </template>
 
-<script>
-import SourceData from '@/data.json'
+<script setup>
+import sourceData from '@/data.json'
+import { ref } from 'vue'
 
-export default {
-  name: 'PageHome',
-  data () {
-    return {
-      threads: SourceData.threads,
-      posts: SourceData.posts,
-      users: SourceData.users
-    }
-  },
-  methods: {
-    postById (id) {
-      return this.posts.find(p => p.id === id)
-    },
-    userById (id) {
-      return this.users.find(u => u.id === id)
-    }
-  }
+const threads = ref(sourceData.threads)
+const posts = ref(sourceData.posts)
+const users = ref(sourceData.users)
+
+function postById (id) {
+  return posts.value.find(p => p.id === id)
+}
+
+function userById (id) {
+  return users.value.find(u => u.id === id)
 }
 </script>
 
