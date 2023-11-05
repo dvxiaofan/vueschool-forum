@@ -1,27 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { createRouter, createWebHistory } from 'vue-router'
-import PageHome from '@/components/PageHome.vue'
-import PageThreadShow from '@/components/PageThreadShow.vue'
-
-const routes = [
-  {
-    path: '/',
-    component: PageHome,
-    name: 'Home'
-  },
-  {
-    path: '/thread/:id',
-    component: PageThreadShow,
-    name: 'ThreadShow',
-    props: true
-  }
-]
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes
-})
+import router from './router'
 
 const forumApp = createApp(App)
 forumApp.component('NiceButton', {})
