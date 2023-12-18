@@ -10,7 +10,7 @@
           </p>
           <p class="text-faded text-xsmall">
             By <a href="#">{{ userById(thread.userId).name }}</a
-            >,{{ thread.publishedAt }}.
+            >, <AppDate :timestamp="thread.publishedAt" />.
           </p>
         </div>
         <div class="activity">
@@ -27,7 +27,9 @@
               <a href="#">{{ userById(thread.userId).name }}</a>
             </p>
 
-            <p class="text-xsmall text-faded">{{ thread.publishedAt }}</p>
+            <p class="text-xsmall text-faded">
+              <AppDate :timestamp="thread.publishedAt" />
+            </p>
           </div>
         </div>
       </div>
@@ -37,11 +39,12 @@
 
 <script>
 import sourceData from '@/data.json'
+import AppDate from '@/components/AppDate.vue'
 
 export default {
   name: 'ThreadList',
   mixins: [],
-  components: {},
+  components: { AppDate },
   props: {
     threads: {
       required: true,
