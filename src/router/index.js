@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import PageHome from '@/pages/PageHome.vue'
-import PageThreadShow from '@/pages/PageThreadShow.vue'
+import ThreadShow from '@/pages/ThreadShow.vue'
 import PageNotFound from '@/pages/PageNotFound.vue'
 import sourceData from '@/data.json'
 
@@ -12,7 +12,7 @@ const routes = [
   },
   {
     path: '/thread/:id',
-    component: PageThreadShow,
+    component: ThreadShow,
     name: 'ThreadShow',
     props: true,
     beforeEnter (to, from, next) {
