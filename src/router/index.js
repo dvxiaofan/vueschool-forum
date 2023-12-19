@@ -3,12 +3,19 @@ import PageHome from '@/pages/PageHome.vue'
 import ThreadShow from '@/pages/ThreadShow.vue'
 import PageNotFound from '@/pages/PageNotFound.vue'
 import sourceData from '@/data.json'
+import Forum from '@/pages/Forum.vue'
 
 const routes = [
   {
     path: '/',
     component: PageHome,
     name: 'Home'
+  },
+  {
+    path: '/forum/:id',
+    component: Forum,
+    name: 'Forum',
+    props: true
   },
   {
     path: '/thread/:id',
