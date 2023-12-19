@@ -1,22 +1,22 @@
 <template>
   <h1>Welcome to the Forum</h1>
-  <ForumList :forums="forums"/>
+  <CategoryList :categories="categories" />
 </template>
 
 <script>
 import sourceData from '@/data.json'
-import ForumList from '@/components/ForumList.vue'
+import CategoryList from '@/components/CategoryList.vue'
 console.log(sourceData)
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Home',
   components: {
-    ForumList
+    CategoryList
   },
   data () {
     return {
-      forums: sourceData.forums
+      categories: sourceData.categories
     }
   }
 }
