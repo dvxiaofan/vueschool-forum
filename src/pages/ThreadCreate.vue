@@ -4,46 +4,17 @@
       Create new thread in <i>{{ forum.name }}</i>
     </h1>
 
-    <form @submit.prevent="save">
-      <div class="form-group">
-        <label for="thread_title">Title:</label>
-        <input
-            v-model="title"
-            type="text"
-            id="thread_title"
-            class="form-input"
-            name="title"
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="thread_content">Content:</label>
-        <textarea
-            v-model="text"
-            id="thread_content"
-            class="form-input"
-            name="content"
-            rows="8"
-            cols="140"
-        ></textarea>
-      </div>
-
-      <div class="btn-group">
-        <button class="btn btn-ghost" @click="cancel">Cancel</button>
-        <button class="btn btn-blue" type="submit" name="Publish">
-          Publish
-        </button>
-      </div>
-    </form>
+    <ThreadEditor @save="save" @cancel="cancel" />
   </div>
 </template>
 
 <script>
+import ThreadEditor from '@/components/ThreadEditor.vue'
 
 export default {
   name: 'ThreadCreate',
   mixins: [],
-  components: {},
+  components: { ThreadEditor },
   props: {
     forumId: { type: String, required: true }
   },
@@ -64,12 +35,12 @@ export default {
   mounted () {
   },
   methods: {
-    async save () {
+    async save ({ title, text }) {
       // dispatch a vuex action to create the thread
       const thread = await this.$store.dispatch('createThread', {
-        title: this.title,
-        text: this.text,
-        forumId: this.forum.id
+        forumId: this.forum.id,
+        title,
+        text
       })
       this.$router.push({
         name: 'ThreadShow',
