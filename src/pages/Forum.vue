@@ -18,7 +18,6 @@
 import ThreadList from '@/components/ThreadList.vue'
 
 export default {
-  // eslint-disable-next-line vue/multi-word-component-names
   name: 'Forum',
   mixins: [],
   components: { ThreadList },

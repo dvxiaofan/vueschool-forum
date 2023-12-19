@@ -5,12 +5,18 @@ import PageNotFound from '@/pages/PageNotFound.vue'
 import sourceData from '@/data.json'
 import Forum from '@/pages/Forum.vue'
 import Category from '@/pages/Category.vue'
+import Profile from '@/pages/Profile.vue'
 
 const routes = [
   {
     path: '/',
     component: Home,
     name: 'Home'
+  },
+  {
+    path: '/me',
+    component: Profile,
+    name: 'Profile'
   },
   {
     path: '/category/:id',

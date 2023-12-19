@@ -7,7 +7,6 @@
 import ForumList from '@/components/ForumList.vue'
 
 export default {
-  // eslint-disable-next-line vue/multi-word-component-names
   name: 'Category',
   mixins: [],
   components: { ForumList },
