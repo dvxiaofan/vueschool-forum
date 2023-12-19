@@ -6,6 +6,7 @@ import sourceData from '@/data.json'
 import Forum from '@/pages/Forum.vue'
 import Category from '@/pages/Category.vue'
 import Profile from '@/pages/Profile.vue'
+import ThreadCreate from '@/pages/ThreadCreate.vue'
 
 const routes = [
   {
@@ -59,6 +60,12 @@ const routes = [
         })
       }
     }
+  },
+  {
+    path: '/form/:forumId/thread/create',
+    component: ThreadCreate,
+    name: 'ThreadCreate',
+    props: true
   },
   {
     path: '/:pathMatch(.*)*',
