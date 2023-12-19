@@ -39,12 +39,11 @@
 
 <script>
 import sourceData from '@/data.json'
-import AppDate from '@/components/AppDate.vue'
 
 export default {
   name: 'ThreadList',
   mixins: [],
-  components: { AppDate },
+  components: { },
   props: {
     threads: {
       required: true,
