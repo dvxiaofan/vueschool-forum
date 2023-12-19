@@ -4,9 +4,7 @@
 </template>
 
 <script>
-import sourceData from '@/data.json'
 import CategoryList from '@/components/CategoryList.vue'
-console.log(sourceData)
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
@@ -15,8 +13,11 @@ export default {
     CategoryList
   },
   data () {
-    return {
-      categories: sourceData.categories
+    return {}
+  },
+  computed: {
+    categories () {
+      return this.$store.state.categories
     }
   }
 }
