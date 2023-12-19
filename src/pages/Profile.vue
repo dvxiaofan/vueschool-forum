@@ -3,6 +3,7 @@
     <div class="flex-grid">
       <div class="col-3 push-top">
         <user-profile-card :user="user" />
+        <user-profile-card-editor :user="user" />
 
         <p class="text-xsmall text-faded text-center">
           Member since june 2003, last visited 4 hours ago
@@ -31,12 +32,13 @@
 <script>
 import PostList from '@/components/PostList.vue'
 import UserProfileCard from '@/components/UserProfileCard.vue'
+import UserProfileCardEditor from '@/components/UserProfileCardEditor.vue'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'Profile',
   mixins: [],
-  components: { PostList, UserProfileCard },
+  components: { PostList, UserProfileCard, UserProfileCardEditor },
   props: {},
   data () {
     return { }
