@@ -15,9 +15,9 @@
       <ul>
         <li class="navbar-user">
           <a href="#">
-            <img class="avatar-small" src="https://pbs.twimg.com/profile_images/1188775562657091594/5mgkg44t_400x400.jpg" alt="avatar" />
+            <img class="avatar-small" :src="authUser.avatar" :alt="`${authUser.name} profile picture`" />
             <span>
-              Alex Cc
+              {{ authUser.name }}
               <img class="icon-profile" src="../assets/svg/arrow-profile.svg" alt="icon" />
             </span>
           </a>
@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'TheNavbar',
@@ -46,7 +47,9 @@ export default {
     return {}
   },
   watch: {},
-  computed: {},
+  computed: {
+    ...mapGetters(['authUser'])
+  },
   created () {
   },
   mounted () {
