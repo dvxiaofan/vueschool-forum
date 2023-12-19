@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import PageHome from '@/pages/PageHome.vue'
+import Home from '@/pages/Home.vue'
 import ThreadShow from '@/pages/ThreadShow.vue'
 import PageNotFound from '@/pages/PageNotFound.vue'
 import sourceData from '@/data.json'
@@ -8,7 +8,7 @@ import Forum from '@/pages/Forum.vue'
 const routes = [
   {
     path: '/',
-    component: PageHome,
+    component: Home,
     name: 'Home'
   },
   {
