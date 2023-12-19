@@ -1,4 +1,5 @@
 <template>
+  <the-navbar/>
   <div class="container">
     <router-view/>
   </div>
@@ -6,9 +7,12 @@
 
 <script>
 
+import TheNavbar from '@/components/TheNavbar.vue'
+
 export default {
   name: 'App',
   components: {
+    TheNavbar
   }
 }
 </script>
