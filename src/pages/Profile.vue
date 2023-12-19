@@ -2,19 +2,8 @@
   <div class="container">
     <div class="flex-grid">
       <div class="col-3 push-top">
-        <user-profile-card :user="user" />
-        <user-profile-card-editor :user="user" />
-
-        <p class="text-xsmall text-faded text-center">
-          Member since june 2003, last visited 4 hours ago
-        </p>
-
-        <div class="text-center">
-          <hr />
-          <a href="edit-profile.html" class="btn-green btn-small"
-          >Edit Profile</a
-          >
-        </div>
+        <user-profile-card v-if="!edit" :user="user" />
+        <user-profile-card-editor v-else :user="user" />
       </div>
 
       <div class="col-7 push-top">
@@ -39,7 +28,12 @@ export default {
   name: 'Profile',
   mixins: [],
   components: { PostList, UserProfileCard, UserProfileCardEditor },
-  props: {},
+  props: {
+    edit: {
+      type: Boolean,
+      default: false
+    }
+  },
   data () {
     return { }
   },
