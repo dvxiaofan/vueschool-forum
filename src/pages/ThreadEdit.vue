@@ -32,7 +32,7 @@ export default {
       return this.$store.state.threads.find(t => t.id === this.id)
     },
     text () {
-      return this.$store.state.posts.find(p => p.threadId === this.thread[0]).text
+      return this.$store.state.posts.find(post => post.id === this.thread.posts[0]).text
     }
   },
   created () {
@@ -42,7 +42,7 @@ export default {
   methods: {
     async save ({ title, text }) {
       const thread = await this.$store.dispatch('updateThread', {
-        forumId: this.forum.id,
+        id: this.id,
         title,
         text
       })
@@ -55,9 +55,9 @@ export default {
     },
     cancel () {
       this.$router.push({
-        name: 'Forum',
+        name: 'ThreadShow',
         params: {
-          id: this.forum.id
+          id: this.id
         }
       })
     }

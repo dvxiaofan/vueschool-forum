@@ -51,7 +51,7 @@ export default createStore({
       const post = state.posts.find(post => post.id === thread.posts[0])
       const newThread = { ...thread, title }
       const newPost = { ...post, text }
-      commit('setThread', { thread: { thread: newThread } })
+      commit('setThread', { thread: newThread })
       commit('setPost', { post: newPost })
       return newThread
     },
