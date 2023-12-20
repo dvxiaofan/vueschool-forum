@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import { findById } from '@/helpers'
 
 export default {
   name: 'ThreadList',
@@ -65,10 +66,10 @@ export default {
   mounted () {},
   methods: {
     postById (postId) {
-      return this.posts.find((p) => p.id === postId)
+      return findById(this.posts, postId)
     },
     userById (userId) {
-      return this.users.find((u) => u.id === userId)
+      return findById(this.users, userId)
     }
   }
 }

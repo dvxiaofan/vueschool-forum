@@ -21,6 +21,7 @@
 
 <script>
 import ThreadList from '@/components/ThreadList.vue'
+import { findById } from '@/helpers'
 
 export default {
   name: 'Forum',
@@ -38,7 +39,7 @@ export default {
   watch: {},
   computed: {
     forum () {
-      return this.$store.state.forums.find(f => f.id === this.id)
+      return findById(this.$store.state.forums, this.id)
     },
     threads () {
       return this.$store.state.threads.filter(t => t.forumId === this.id)

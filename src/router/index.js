@@ -8,6 +8,7 @@ import Category from '@/pages/Category.vue'
 import Profile from '@/pages/Profile.vue'
 import ThreadCreate from '@/pages/ThreadCreate.vue'
 import ThreadEdit from '@/pages/ThreadEdit.vue'
+import { findById } from '@/helpers'
 
 const routes = [
   {
@@ -46,7 +47,7 @@ const routes = [
     props: true,
     beforeEnter (to, from, next) {
       // check if thread exists
-      const threadExists = sourceData.threads.find(thread => thread.id === to.params.id)
+      const threadExists = findById(sourceData.threads, to.params.id)
       // if exists continue
       if (threadExists) {
         return next()
