@@ -18,6 +18,24 @@ export default {
     categories () {
       return this.$store.state.categories
     }
+  },
+  beforeCreate () {
+    console.log('beforeCreate: ', this.categories)
+  },
+  created () {
+    console.log('created: ', this.categories)
+  },
+  beforeMount () {
+    console.log('beforeMount: ', this.categories)
+  },
+  mounted () {
+    console.log('mounted: ', this.categories, this.$el)
+  },
+  beforeUnmount () {
+    console.log('beforeUnmount: ', this.categories, this.$el)
+  },
+  unmounted () {
+    console.log('unmounted: ', this.categories)
   }
 }
 </script>
