@@ -41,6 +41,7 @@ export default createStore({
     thread: state => {
       return (id) => {
         const thread = findById(state.threads, id)
+        if (!thread) return {}
         return {
           ...thread,
           get author () {
@@ -88,14 +89,20 @@ export default createStore({
     updateUser ({ commit }, user) {
       commit('setItem', { resource: 'users', item: user })
     },
-    fetchThread ({ dispatch }, { id }) {
-      return dispatch('fetchItem', { resource: 'threads', id, emoji: '📄' })
+    fetchCategory ({ dispatch }, { id }) {
+      return dispatch('fetchItem', { emoji: '🏷', resource: 'categories', id })
     },
-    fetchUser ({ dispatch }, { id }) {
-      return dispatch('fetchItem', { resource: 'users', id, emoji: '🙋' })
+    fetchForum ({ dispatch }, { id }) {
+      return dispatch('fetchItem', { emoji: '🏁', resource: 'forums', id })
+    },
+    fetchThread ({ dispatch }, { id }) {
+      return dispatch('fetchItem', { emoji: '📄', resource: 'threads', id })
     },
     fetchPost ({ dispatch }, { id }) {
-      return dispatch('fetchItem', { resource: 'posts', id, emoji: '💬' })
+      return dispatch('fetchItem', { emoji: '💬', resource: 'posts', id })
+    },
+    fetchUser ({ dispatch }, { id }) {
+      return dispatch('fetchItem', { emoji: '🙋', resource: 'users', id })
     },
     fetchAllCategories ({ commit, state }) {
       console.log('🔥', '🏷', 'all')
@@ -110,17 +117,20 @@ export default createStore({
         })
       })
     },
+    fetchCategories ({ dispatch }, { ids }) {
+      return dispatch('fetchItems', { resource: 'categories', ids, emoji: '🏷' })
+    },
+    fetchForums ({ dispatch }, { ids }) {
+      return dispatch('fetchItems', { resource: 'forums', ids, emoji: '🏁' })
+    },
     fetchThreads ({ dispatch }, { ids }) {
       return dispatch('fetchItems', { resource: 'threads', ids, emoji: '📄' })
     },
-    fetchForums ({ dispatch }, { ids }) {
-      return dispatch('fetchItems', { resource: 'forums', ids, emoji: '🏷' })
+    fetchPosts ({ dispatch }, { ids }) {
+      return dispatch('fetchItems', { resource: 'posts', ids, emoji: '💬' })
     },
     fetchUsers ({ dispatch }, { ids }) {
       return dispatch('fetchItems', { resource: 'users', ids, emoji: '🙋' })
-    },
-    fetchPosts ({ dispatch }, { ids }) {
-      return dispatch('fetchItems', { resource: 'posts', ids, emoji: '💬' })
     },
     fetchItem ({ commit, state }, { id, emoji, resource }) {
       console.log('🔥', emoji, id)
