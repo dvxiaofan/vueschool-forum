@@ -44,24 +44,24 @@ const routes = [
     path: '/thread/:id',
     component: ThreadShow,
     name: 'ThreadShow',
-    props: true,
-    beforeEnter (to, from, next) {
-      // check if thread exists
-      const threadExists = findById(sourceData.threads, to.params.id)
-      // if exists continue
-      if (threadExists) {
-        return next()
-      } else {
-        // else redirect to not found
-        next({
-          name: 'NotFound',
-          params: { pathMatch: to.path.substring(1).split('/') },
-          // preserve existing query and hash
-          query: to.query,
-          hash: to.hash
-        })
-      }
-    }
+    props: true
+    // beforeEnter (to, from, next) {
+    //   // check if thread exists
+    //   const threadExists = findById(sourceData.threads, to.params.id)
+    //   // if exists continue
+    //   if (threadExists) {
+    //     return next()
+    //   } else {
+    //     // else redirect to not found
+    //     next({
+    //       name: 'NotFound',
+    //       params: { pathMatch: to.path.substring(1).split('/') },
+    //       // preserve existing query and hash
+    //       query: to.query,
+    //       hash: to.hash
+    //     })
+    //   }
+    // }
   },
   {
     path: '/forum/:forumId/thread/create',
