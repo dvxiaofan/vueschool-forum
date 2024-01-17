@@ -11,6 +11,7 @@
 <script>
 import ThreadEditor from '@/components/ThreadEditor.vue'
 import { findById } from '@/helpers'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'ThreadCreate',
@@ -32,14 +33,14 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('fetchForum', { id: this.forumId })
+    this.fetchForum({ id: this.forumId })
   },
   mounted () {
   },
   methods: {
+    ...mapActions(['createThread', 'fetchForum']),
     async save ({ title, text }) {
-      // dispatch a vuex action to create the thread
-      const thread = await this.$store.dispatch('createThread', {
+      const thread = await this.createThread({
         forumId: this.forum.id,
         title,
         text
