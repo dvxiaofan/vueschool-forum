@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import firebase from 'firebase'
 import firebaseConfig from '@/config/firebase'
+import FontAwesomeIcon from '@/plugins/FontAwesome'
 
 firebase.initializeApp(firebaseConfig)
 
@@ -11,6 +12,7 @@ const forumApp = createApp(App)
 forumApp.component('NiceButton', {})
 forumApp.use(router)
 forumApp.use(store)
+forumApp.use(FontAwesomeIcon)
 
 const requireComponent = require.context('./components', true, /App[A-Z]\w+\.(vue|js)$/)
 requireComponent.keys().forEach(fileName => {
