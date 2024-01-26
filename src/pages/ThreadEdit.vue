@@ -34,7 +34,7 @@ export default {
       return findById(this.$store.state.threads, this.id)
     },
     text () {
-      const post = findById(this.$store.state.posts, this.thread.posts[0]).text
+      const post = findById(this.$store.state.posts, this.thread.posts[0])?.text
       return post ? post.text : ''
     }
   },
